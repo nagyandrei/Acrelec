@@ -1,0 +1,6 @@
+@Acrelec.SCO.Server.Web.API_HostAddress = http://localhost:5143
+
+GET {{Acrelec.SCO.Server.Web.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
