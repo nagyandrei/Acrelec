@@ -40,6 +40,7 @@ namespace Acrelec.SCO.Core
                 Console.WriteLine($"Order injected with success. OrderNumber: {assignedOrderNumber}");
             else
                 Console.WriteLine("Error injecting order");
+            Console.ReadLine();
         }
 
         private static Order CreateNewOrder()
@@ -63,6 +64,16 @@ namespace Acrelec.SCO.Core
         {
             var items = itemsProvider.AllPOSItems;
 
+            Console.WriteLine("Listing all items\n");
+            foreach (var item in items)
+            {
+                Console.WriteLine($"Item name: {item.Name}");
+                Console.WriteLine($"Item short name: {POSItemExtensions.Name(item)}");
+            }
+
+            items = itemsProvider.AvailablePOSItems;
+
+            Console.WriteLine("\nListing available items");
             foreach (var item in items)
             {
                 Console.WriteLine($"Item name: {item.Name}");

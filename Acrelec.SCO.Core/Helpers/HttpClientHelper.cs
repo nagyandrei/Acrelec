@@ -6,13 +6,13 @@ namespace Acrelec.SCO.Core.Helpers
 {
     public static class HttpClientHelper
     {
-        private static readonly HttpClient httpClient = new HttpClient();
+        public static HttpClient HttpClient { get; set; } = new HttpClient();
 
         public static async Task<string> HttpGet(string url)
         {
             try
             {
-                var response = await httpClient.GetAsync(url);
+                var response = await HttpClient.GetAsync(url);
                 response.EnsureSuccessStatusCode();
                 return await response.Content.ReadAsStringAsync();
             }
@@ -27,7 +27,7 @@ namespace Acrelec.SCO.Core.Helpers
         {
             try
             {
-                var response = await httpClient.PostAsync(url, content);
+                var response = await HttpClient.PostAsync(url, content);
                 response.EnsureSuccessStatusCode();
                 return await response.Content.ReadAsStringAsync();
             }
